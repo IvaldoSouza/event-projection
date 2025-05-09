@@ -1,0 +1,95 @@
+.container {
+  padding: 2rem;
+}
+
+// .meu-card-especial {
+//   background-color: #f4f3f6;
+//   border-radius: 16px; 
+//   border-color: #dedfe7; 
+//   transition: transform 0.3s ease, box-shadow 0.3s ease;
+// }
+
+// .meu-card-especial:hover {
+//   transform: translateY(-4px);
+//   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+// }
+
+.custom-card {
+  height: 200px;
+  background-color: #fafafb;
+  border-color: #dedfe7;
+  padding: 16px;
+}
+
+.card-content {
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.card-text {
+  flex: 1;
+}
+
+.card-input {
+  width: 200px;
+  height: 50px;
+  margin-right: 50px;
+  
+  /* Para formulários reativos */
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.custom-panel {
+  background-color: #ffffff;
+  
+  &:hover {
+    background-color: #fafafb;
+  }
+  
+  &.mat-expanded {
+    background-color: #fafafb;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .card-input {
+    width: 100%;
+    margin-top: 12px;
+  }
+}
+
+// ///////////////////////////////////////////////////////////
+
+.example-button-container {
+  display: flex;
+  justify-content: left ;
+  width: 140px;
+  height: 50px;
+  // margin-right: 40px;
+  margin-left: 15px;
+  align-items: center;
+  // gap: 16px
+}
+
+.custom-divider {
+  border-top-width: 2px;
+  border-top-color: #d9d9db;
+
+  margin: 15px;;
+  
+  /* Para divisores verticais */
+  &[vertical] {
+    border-right-width: 2px;
+    border-right-color: #d9d9db;
+  }
+}

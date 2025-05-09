@@ -1,0 +1,45 @@
+.cycle-info {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 14px;
+}
+
+.cycle-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* para ocupar todo o espaço do mat-option */
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.cycle-name,
+.cycle-priority,
+.cycle-entities {
+  flex: 1;
+  text-align: left;
+}
+
+.cycle-priority {
+  text-align: center;
+}
+
+.cycle-entities {
+  text-align: right;
+}
+
+
+// ::ng-deep mat-pseudo-checkbox.mat-pseudo-checkbox-checked {
+//   background-color: #4caf50 !important; // Cor de fundo do check (verde)
+//   border-color: #4caf50 !important;     // Borda do check
+// }
+
+// ::ng-deep mat-pseudo-checkbox.mat-pseudo-checkbox-checked::after {
+//   color: white !important;              // Cor do ícone do check
+// }
+
+// ::ng-deep mat-pseudo-checkbox {
+//   border: 2px solid red !important;
+// }
+
