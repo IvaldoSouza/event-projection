@@ -1,79 +1,75 @@
-<div class="container">
-    <h1>Iniciar novas Entidades</h1>
+<mat-dialog-content>
+    <div class="modal-container">
+        <div class="main-content">
+            <h1>Iniciar novas Entidades</h1>
 
-    <mat-card class="custom-card">
-        <div class="card-content">
-            <div class="card-text">
-                <!-- <h3>Entidades à iniciar</h3> -->
-                <mat-card-title>Entidades à Iniciar</mat-card-title>
-                <p>Após o inicio, os eventos serão disponibilizados para execução nos dias que estão definidos en seus
-                    cliclos.</p>
-            </div>
-
-            <div class="card-input">
-                <mat-form-field appearance="outline">
-                    <mat-icon matPrefix
-                        style="font-size: 50px; color: rgb(99, 99, 99); width: 50px; height: 50px; margin-left: -20px;">
-                        <div class="example-button-container">
-                            <button mat-mini-fab disabled>
-                                <mat-icon>play_arrow</mat-icon>
-                            </button>
-                        </div>
-                    </mat-icon>
-                    <input matInput type="number" min="1" [(ngModel)]="entityCount">
-                </mat-form-field>
+            <mat-card class="custom-card">
                 <div class="card-content">
-                    <p>Novos eventos para hoje: <strong>35 eventos</strong></p>
+                    <div class="card-text">
+                        <mat-card-title>Entidades à Iniciar</mat-card-title>
+                        <p>Após o inicio, os eventos serão disponibilizados para execução nos dias que estão definidos
+                            en seus
+                            cliclos.</p>
+                    </div>
+
+                    <div class="card-input">
+                        <mat-form-field appearance="outline">
+                            <mat-icon matPrefix
+                                style="font-size: 50px; color: rgb(99, 99, 99); width: 50px; height: 50px; margin-left: -20px;">
+                                <div class="example-button-container">
+                                    <button mat-mini-fab disabled>
+                                        <mat-icon>play_arrow</mat-icon>
+                                    </button>
+                                </div>
+                            </mat-icon>
+                            <input matInput type="number" min="1" [(ngModel)]="entityCount">
+                        </mat-form-field>
+                        <div class="card-content">
+                            <p>Novos eventos para hoje: <strong>35 eventos</strong></p>
+                        </div>
+                    </div>
                 </div>
+            </mat-card>
+
+            <mat-divider class="custom-divider"></mat-divider>
+
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)"
+                    class="custom-panel">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Selecione ciclos (opcional)</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p style="font-size: 12px;">Por padrão as entidades são selecionadas automaticamente de acordo com
+                        os ciclos
+                        que você participa e suas prioridades</p>
+                    <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)"
+                        class="custom-panel">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title style="color: rgb(0, 183, 255);">Ciclos</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <app-cycle-selector [cycles]="cycles" (cyclesChange)="teste($event)"></app-cycle-selector>
+                    </mat-expansion-panel>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+            <mat-divider class="custom-divider"></mat-divider>
+
+            <app-stacked-bar-chart [chartOptions]="chartOptions"></app-stacked-bar-chart>
+
+            <!-- <div class="button-container">
+                <button mat-flat-button class="custom-button" (click)="startEntities()">
+                    Iniciar novas entidades
+                </button>
+            </div> -->
+        </div>
+
+        <div class="footer">
+            <div class="button-container">
+                <button mat-flat-button class="custom-button" (click)="startEntities()">
+                    Iniciar novas entidades
+                </button>
             </div>
         </div>
-    </mat-card>
+    </div>
 
-    <mat-divider class="custom-divider"></mat-divider>
-
-    <mat-accordion>
-        <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)"
-            class="custom-panel">
-            <mat-expansion-panel-header>
-                <mat-panel-title>Selecione ciclos (opcional)</mat-panel-title>
-            </mat-expansion-panel-header>
-            <p style="font-size: 12px;">Por padrão as entidades são selecionadas automaticamente de acordo com os ciclos
-                que você participa e suas prioridades</p>
-            <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)"
-                class="custom-panel">
-                <mat-expansion-panel-header>
-                    <mat-panel-title style="color: rgb(0, 183, 255);">Ciclos</mat-panel-title>
-                    <mat-panel-description style="margin-left: 600px;">
-                        Selecionados/Disponíveis
-                    </mat-panel-description>
-                    <mat-panel-description>
-                        Eventos para hoje
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-                <app-cycle-selector [cycles]="cycles" (cyclesChange)="cycles = $event"></app-cycle-selector>
-            </mat-expansion-panel>
-        </mat-expansion-panel>
-    </mat-accordion>
-
-    <mat-divider class="custom-divider"></mat-divider>
-
-    <app-stacked-bar-chart [chartOptions]="chartOptions"></app-stacked-bar-chart>
-
-
-    
-
-    <!-- <mat-divider style="color:#fafafb; margin: 20px 0;"></mat-divider> -->
-
-    <!-- <button mat-button>Clique-me</button> -->
-
-    <!-- <p>Entidades: {{ entityCount }}</p> -->
-
-    <!-- <button mat-raised-button color="primary" (click)="startEntities()">
-        Iniciar novas entidades
-    </button> -->
-
-    <!-- <app-entity-counter [value]="entityCount" (valueChange)="entityCount = $event"></app-entity-counter> -->
-
-    <!-- <app-cycle-selector [cycles]="cycles" (cyclesChange)="cycles = $event"></app-cycle-selector> -->
-
-</div>
+</mat-dialog-content>

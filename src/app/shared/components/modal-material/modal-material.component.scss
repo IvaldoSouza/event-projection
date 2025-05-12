@@ -1,0 +1,17 @@
+::ng-deep .custom-modal .mat-dialog-container {
+  height: 100% !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}

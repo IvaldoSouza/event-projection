@@ -5,3 +5,49 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 // @import '~@ag-grid-community/styles/ag-grid.css';
 // @import '~@ag-grid-community/styles/ag-theme-quartz.css';
+
+// Ajustes para o modal
+::ng-deep .custom-modal .mat-dialog-container {
+  display: flex;
+  flex-direction: column;
+  width: auto !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+::ng-deep .mat-mdc-dialog-content {
+  max-height: none !important;
+  overflow: visible !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column;
+}
+
+// Telas médias: tablets em paisagem 
+@media (max-width: 1024px) {
+  ::ng-deep .custom-modal .mat-dialog-container {
+    max-width: 95vw !important;
+    max-height: 95vh !important;
+  }
+}
+
+// Telas pequenas: celulares 
+@media (max-width: 600px) {
+  ::ng-deep .custom-modal .mat-dialog-container {
+    max-width: 98vw !important;
+    max-height: 98vh !important;
+    border-radius: 0 !important;
+    padding: 16px !important;
+  }
+}
+
+
+
+

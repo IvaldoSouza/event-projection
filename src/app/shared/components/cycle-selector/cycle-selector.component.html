@@ -3,10 +3,13 @@
         [ngStyle]="{ width: '100%', height: heightGrid + 'px' }"
         [rowHeight]="50"
         class="ag-theme-quartz"
-        [rowData]="rowData"
+        [rowData]="cycles"
         rowModelType="clientSide"
-        [columnDefs]="columnDefs"
-        [defaultColDef]="defaultColDef">
+        [rowSelection]="'multiple'"
+        [suppressRowClickSelection]="true"
+        (selectionChanged)="onSelectionChanged()"
+        (gridReady)="onGridReady($event)"
+        [columnDefs]="columnDefs">
     </ag-grid-angular>
 </div>
 
