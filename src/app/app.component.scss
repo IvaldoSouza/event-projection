@@ -1,5 +1,5 @@
 .footer {
-  z-index: 1001;
+  z-index: 0;
   position: fixed;
   bottom: 0;
   background-color: #254446 !important;
@@ -9,7 +9,7 @@
 .footer-content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; // separa os blocos em lados opostos
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 20px;
@@ -72,35 +72,88 @@
 }
 
 .main-content {
-  flex: 1;
-  overflow-y: auto;
-  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 0;
+  gap: 100px;
+  min-height: calc(100vh - 220px);
 }
 
 .circle-container {
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // background-color: rgb(254 210 98);
-  // border-radius: 50%;
-  // height: 100vh;
-
-  width: 400px;
-  height: 400px;
-  background-color: rgb(254 210 98);
+  width: 350px;
+  height: 350px;
+  background-color: rgb(254, 210, 98);
   border-radius: 50%;
-  position: fixed;
-  top: 50%;
-  left: 35%;
-  transform: translate(-50%, -50%);
+  flex-shrink: 0;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
 }
 
-.teste {
-  border: solid 1px red;
-  // width: 400px;
-  // height: 400px;
-  // position: fixed;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
+.content-area {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
+
+.card-text {
+  margin: 0;
+}
+
+.img-software {
+  width: 280px;
+  height: 200px;
+  margin-top: 75px;
+  margin-left: 38px;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .footer-section,
+  .copyright {
+    text-align: left;
+    margin-right: 0;
+    min-width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+  }
+
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .circle-container {
+    width: 250px;
+    height: 250px;
+  }
+
+  .content-area {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .img-software {
+    width: 200px;
+    height: auto;
+    margin: 40px auto 0 auto;
+  }
+
+  .button-container {
+    justify-content: center;
+    margin: 16px auto;
+  }
+}
+

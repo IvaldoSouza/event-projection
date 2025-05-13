@@ -36,9 +36,6 @@ export type ChartOptions = {
     styleUrl: './stacked-bar-chart.component.scss'
 })
 export class StackedBarChartComponent {
-    // @Input() chartOptions: Partial<ChartOptions>;
-
-
     @Input() chartOptions: ChartOptions = {
         series: [],
         chart: {

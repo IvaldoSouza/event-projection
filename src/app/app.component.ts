@@ -17,7 +17,6 @@ export class AppComponent {
 
     openModal(): void {
         this.modal.open(ModalMaterialComponent, {
-            // width: 'auto',
             height: '95vh',
             maxWidth: '800px',
             maxHeight: '95vh',

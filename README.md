@@ -1,59 +1,90 @@
-# EventProjection
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+# Projeto: Projeção de Eventos
 
-## Development server
+Este projeto tem como objetivo simular a projeção de eventos futuros com base em ciclos configurados, distribuindo entidades entre eles e exibindo as projeções visualmente.
 
-To start a local development server, run:
+## Funcionalidades Implementadas
 
-```bash
-ng serve
+- Consumo de dados simulados a partir de um mock JSON (mock-data.json).
+- Exibição de ciclos e sua estrutura de eventos ao longo de 5 dias úteis.
+- Campo para informar quantidade de entidades a iniciar.
+- Seleção opcional de ciclos com controle via AG Grid.
+- Atualização do gráfico com projeção de eventos conforme as entidades são iniciadas.
+- Cálculo automático de eventos do dia atual com destaque no gráfico.
+- Regras de negócio aplicadas conforme descritas no enunciado.
+- Ciclos de maior prioridade já vêm selecionados ao iniciar.
+- Modal customizado com scroll invisível e responsividade total.
+
+## Arquitetura do Projeto
+
+Este projeto foi desenvolvido seguindo os princípios de:
+
+- Clean Architecture
+- SOLID
+- KISS
+
+### Estrutura de pastas
+
+```
+src/
+├── app/
+│   ├── core/                # Regras de domínio e contratos
+│   │   ├── models/          # Modelos de domínio: Cycle, EventProjection
+│   │   ├── services/        # Abstrações e regras de negócio
+│   │   └── utils/           # Funções utilitárias puras (ex: distribuição, cálculo)
+│   ├── data/                # Camada de infraestrutura (ex: simulação de API)
+│   ├── pages/               # Componentes Angular (telas e visualização)
+│   └── shared/              # Componentes reutilizáveis e módulo Material
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Como Executar Localmente
 
-## Code scaffolding
+1. Clonar o repositório:
+   git clone git@github.com:IvaldoSouza/event-projection.git
+   cd projecao-eventos
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+2. Instalar dependências:
+   npm install
 
-```bash
-ng generate component component-name
-```
+3. Executar o projeto:
+   ng serve
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+4. Acessar no navegador:
+   http://localhost:4200
 
-```bash
-ng generate --help
-```
+## Tecnologias Utilizadas
 
-## Building
+- Angular 19 (standalone)
+- TypeScript
+- SCSS
+- AG Grid
+- ApexCharts
+- Angular Material
 
-To build the project run:
+## Regras de Negócio
 
-```bash
-ng build
-```
+- O gráfico deve sempre exibir projeções a partir da baseProjection, somando as contribuições das entidades iniciadas.
+- Se nenhum ciclo for selecionado manualmente, as entidades são distribuídas automaticamente entre os de maior prioridade.
+- A label "Hoje" é posicionada dinamicamente com base no dia atual da semana.
+- Sábados e domingos são ignorados.
+- O gráfico deve refletir corretamente os dados conforme as entidades são distribuídas nos ciclos.
+- O total de eventos para hoje deve ser destacado tanto no card superior quanto na coluna do gráfico.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Responsividade
 
-## Running unit tests
+- Modal e componentes adaptados para diversos tamanhos de tela.
+- Scroll invisível habilitado apenas quando necessário.
+- Layout otimizado com media queries para tablets e smartphones.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Observações
 
-```bash
-ng test
-```
+- Este projeto simula o consumo de API com base em dados mockados conforme o link enviado no PDF.
+- A lógica foi estruturada para facilitar substituição futura da camada de dados por uma API real.
 
-## Running end-to-end tests
+## Documentação Técnica
+[Documentação Técnica](docs/DOCUMENTACAO_TECNICA.md)
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
+## GIF da tela
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+![Demonstração da aplicação](docs/Tela-projecao-eventos.gif)

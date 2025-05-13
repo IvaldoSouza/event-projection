@@ -86,8 +86,6 @@ export class EventDashboardComponent implements OnInit {
         };
       });
 
-      console.log('cycles', this.cycles);
-
       this.baseProjection = data.eventsProjection;
       this.calculateNewProjection();
     });
