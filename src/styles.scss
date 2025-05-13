@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 // @import '~@ag-grid-community/styles/ag-grid.css';
@@ -22,13 +26,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 ::ng-deep .mat-mdc-dialog-content {
   max-height: none !important;
-  overflow: visible !important;
+  overflow: hidden !important;
   margin: 0 !important;
   padding: 0 !important;
   flex-grow: 1 !important;
   display: flex !important;
   flex-direction: column;
 }
+
+// ::ng-deep .mat-mdc-dialog-container,
+// ::ng-deep .mat-mdc-dialog-surface {
+//   background-color: #333394 !important; /* ou qualquer cor desejada */
+// }
+
+
 
 // Telas médias: tablets em paisagem 
 @media (max-width: 1024px) {

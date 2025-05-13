@@ -1,42 +1,44 @@
 .mat-mdc-dialog-content {
-  max-height: none !important;
-  overflow: visible !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  flex-grow: 1 !important;
-  display: flex !important;
-  flex-direction: column;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column;
 }
 
 :host {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px !important;
 }
 
 .main-content {
-  flex: 1;
-  overflow-y: auto;
-  padding: 24px;
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
 }
 
 .footer {
-  padding: 16px;
-  display: flex;
-  justify-content: flex-end;
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .custom-card {
     height: 180px;
-    background-color: #fafafb;
+    background-color: #eaeaeb;
     border-color: #dedfe7;
     padding: 16px;
+    box-shadow: none;
 }
 
 .card-content {
@@ -54,13 +56,13 @@
 .card-input {
     width: 200px;
     height: 50px;
-    margin-right: 50px;
+    margin-right: 10px;
 
-    /* Para formulários reativos */
     mat-form-field {
         width: 100%;
     }
 }
+
 
 .custom-panel {
     background-color: #ffffff;
@@ -86,8 +88,6 @@
     }
 }
 
-// ///////////////////////////////////////////////////////////
-
 .example-button-container {
     display: flex;
     justify-content: left;
@@ -100,15 +100,15 @@
 }
 
 mat-divider.custom-divider {
-  border-top-width: 2px !important;
-  border-top-color: #d9d9db !important;
-  margin: 15px !important;
+    border-top-width: 2px !important;
+    border-top-color: #d9d9db !important;
+    margin: 15px !important;
 }
 
 mat-divider.custom-divider[vertical] {
-  border-top-width: 0 !important;
-  border-right-width: 2px !important;
-  border-right-color: #d9d9db !important;
+    border-top-width: 0 !important;
+    border-right-width: 2px !important;
+    border-right-color: #d9d9db !important;
 }
 
 .button-container {
@@ -125,4 +125,31 @@ mat-divider.custom-divider[vertical] {
 
 .custom-button:hover {
     background-color: #075828 !important;
+}
+
+.button-container-close {
+    display: flex;
+    justify-content: flex-end;
+    margin: 16px;
+}
+
+.custom-button-close {
+    background-color: #ffffff !important;
+    color: black !important;
+    border: 1px solid rgb(218, 209, 209) !important;
+    border-radius: 4px !important;
+}
+
+.custom-button-close:hover {
+    background-color: #bab9b9 !important;
+}
+
+.mat-mdc-dialog-surface {
+    overflow-y: scroll !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+
+    &::-webkit-scrollbar {
+        display: none !important;
+    }
 }

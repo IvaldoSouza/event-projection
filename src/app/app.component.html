@@ -1,2 +1,51 @@
-<button mat-raised-button (click)="openModal()">Abrir Modal</button>
-<!-- <app-event-dashboard></app-event-dashboard> -->
+<mat-toolbar color="primary">
+    <button mat-icon-button aria-label="Menu">
+        <mat-icon>menu</mat-icon>
+    </button>
+
+    <span><strong>Teste</strong> técnico</span>
+    <img src="assets/img/logo-meetime.png" alt="logo" style="width: 110px; height: 35px; margin-left: 5px;">
+
+    <span class="spacer"></span>
+
+    <button mat-icon-button aria-label="Perfil">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+</mat-toolbar>
+
+<div class="content">
+    <!-- <button mat-raised-button (click)="openModal()">Abrir Modal</button> -->
+     <div class="main-content">
+         <div class="button-container">
+            <div class="teste">
+                <h1>Teste Técnico</h1>
+                <p>Aplicação para teste técnico.Aplicação para teste técnico.Aplicação para teste técnico.
+                    Aplicação para teste técnico.Aplicação para teste técnico.Aplicação para teste técnico.Aplicação para teste técnico</p>
+
+                <button mat-raised-button class="custom-button" (click)="openModal()">Abrir Modal</button>
+            </div>
+         </div>
+         <div class="circle-container">
+
+         </div>
+     </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-content">
+
+        <div class="copyright">
+            <p>Versão Teste técnico: 1.0.0.1</p>
+            <p>© 2025 Teste Técnico. Todos os direitos reservados.</p>
+        </div>
+
+        <div class="footer-section">
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="https://x.com" target="_blank"><i class="fab fa-x-twitter fa-2x"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+        </div>
+
+    </div>
+</footer>

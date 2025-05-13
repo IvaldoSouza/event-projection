@@ -1,7 +1,7 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Cycle } from '../../../core/models/cycle.model';
 import { MaterialModule } from '../../modules/material.module';
-import { ColDef, GridOptions, RowNode } from 'ag-grid-community';
+import { ColDef, GridApi, GridOptions, GridReadyEvent, RowNode } from 'ag-grid-community';
 import { AgGridModule } from 'ag-grid-angular';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
@@ -23,25 +23,29 @@ interface IRow {
     templateUrl: './cycle-selector.component.html',
     styleUrls: ['./cycle-selector.component.scss']
 })
-export class CycleSelectorComponent implements OnInit {
-    @Input() cycles: Cycle[] = [];
-    @Input() eventsProjection: Cycle[] = [];
-    @Output() cyclesChange = new EventEmitter<Cycle[]>();
-    heightGrid: number = window.innerHeight * 0.38;
-    public gridApi: any;
-    public gridColumnApi: any;
-    public selectedRows: any[] = [];
-    public selecionados: Cycle[] = [];
+export class CycleSelectorComponent implements OnChanges {
 
-    ngOnInit(): void {
-        console.log('clicle', this.cycles);
+    @Input() cycles: Cycle[] = [];
+    heightGrid: number = window.innerHeight * 0.28;
+    public gridApi: any;
+    public selectedRows: any[] = [];
+    public selectedCycles: Cycle[] = [];
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes['cycles'] && this.gridApi) {
+            setTimeout(() => {
+                this.selectInitialRows();
+            }, 0);
+        }
     }
 
     columnDefs: ColDef<Cycle>[] = [
         {
+            field: "selected",
+            headerName: "",
             width: 50,
             checkboxSelection: true,
-            lockPosition: true,
+            lockPinned: true
         },
         {
             field: "priority",
@@ -52,7 +56,7 @@ export class CycleSelectorComponent implements OnInit {
                 return this.getPriorityColor(params.data.priority);
             }
         },
-        { 
+        {
             field: "name",
             headerName: "",
             flex: 1,
@@ -65,26 +69,25 @@ export class CycleSelectorComponent implements OnInit {
             },
             flex: 1,
         },
-        { 
+        {
             field: "eventsTodayBase",
             headerName: "Eventos para hoje",
         },
     ];
 
-    // defaultColDef: ColDef = {
-    //     // flex: 1,
-    // };
-
-    onGridReady(params: any) {
+    onGridReady(params: GridReadyEvent) {
         this.gridApi = params.api;
-        this.gridColumnApi = params.columnApi;
+
+        this.selectInitialRows();
     }
 
-    // toggle(cycle: Cycle) {
-    //     cycle.selected = !cycle.selected;
-    //     this.cyclesChange.emit(this.cycles);
-    //     console.log('cycles change', this.cycles);
-    // }
+    selectInitialRows(): void {
+        this.gridApi.forEachNode((node: RowNode) => {
+            if (node.data?.selected) {
+                node.setSelected(true);
+            }
+        });
+    }
 
     getPriorityColor(priority: string): string {
         switch (priority) {
@@ -98,19 +101,18 @@ export class CycleSelectorComponent implements OnInit {
     onSelectionChanged() {
         this.selectedRows = this.getSelectedRows();
 
-        this.selecionados = [... this.selectedRows];
-        console.log('Filas seleccionadas:', this.selecionados);
-        this.teste(this.selecionados);
+        this.selectedCycles = [... this.selectedRows];
+        this.getSelected(this.selectedCycles);
     }
 
-    teste(selecionados: Cycle[]) {
-        selecionados.forEach(c => c.selected = true);
+    getSelected(selectedCycles: Cycle[]) {
+        selectedCycles.forEach(c => c.selected = true);
     }
 
     selectAllRows(seleccionar: boolean) {
         if (seleccionar)
             this.gridApi.selectAll();
-        else 
+        else
             this.gridApi.deselectAll();
     }
 

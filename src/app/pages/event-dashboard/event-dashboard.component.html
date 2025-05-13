@@ -8,8 +8,7 @@
                     <div class="card-text">
                         <mat-card-title>Entidades à Iniciar</mat-card-title>
                         <p>Após o inicio, os eventos serão disponibilizados para execução nos dias que estão definidos
-                            en seus
-                            cliclos.</p>
+                            en seus cliclos.</p>
                     </div>
 
                     <div class="card-input">
@@ -25,7 +24,7 @@
                             <input matInput type="number" min="1" [(ngModel)]="entityCount">
                         </mat-form-field>
                         <div class="card-content">
-                            <p>Novos eventos para hoje: <strong>35 eventos</strong></p>
+                            <p>Novos eventos para hoje: <strong>{{ getEventsForToday() }} eventos</strong></p>
                         </div>
                     </div>
                 </div>
@@ -35,19 +34,19 @@
 
             <mat-accordion>
                 <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)"
-                    class="custom-panel">
-                    <mat-expansion-panel-header>
+                    class="custom-panel" style="box-shadow: none;">
+                    <mat-expansion-panel-header class="custom-panel-header">
                         <mat-panel-title>Selecione ciclos (opcional)</mat-panel-title>
                     </mat-expansion-panel-header>
                     <p style="font-size: 12px;">Por padrão as entidades são selecionadas automaticamente de acordo com
-                        os ciclos
-                        que você participa e suas prioridades</p>
+                        os ciclos que você participa e suas prioridades
+                    </p>
                     <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)"
-                        class="custom-panel">
+                        class="custom-panel" style="box-shadow: none;">
                         <mat-expansion-panel-header>
                             <mat-panel-title style="color: rgb(0, 183, 255);">Ciclos</mat-panel-title>
                         </mat-expansion-panel-header>
-                        <app-cycle-selector [cycles]="cycles" (cyclesChange)="teste($event)"></app-cycle-selector>
+                        <app-cycle-selector [cycles]="cycles" ></app-cycle-selector>
                     </mat-expansion-panel>
                 </mat-expansion-panel>
             </mat-accordion>
@@ -55,15 +54,14 @@
             <mat-divider class="custom-divider"></mat-divider>
 
             <app-stacked-bar-chart [chartOptions]="chartOptions"></app-stacked-bar-chart>
-
-            <!-- <div class="button-container">
-                <button mat-flat-button class="custom-button" (click)="startEntities()">
-                    Iniciar novas entidades
-                </button>
-            </div> -->
         </div>
 
         <div class="footer">
+            <div class="button-container-close">
+                <button mat-flat-button class="custom-button-close" (click)="closeModal()">
+                    Fechar
+                </button>
+            </div>
             <div class="button-container">
                 <button mat-flat-button class="custom-button" (click)="startEntities()">
                     Iniciar novas entidades

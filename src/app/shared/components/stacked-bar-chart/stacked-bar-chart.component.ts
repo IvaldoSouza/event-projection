@@ -25,6 +25,7 @@ export type ChartOptions = {
     tooltip: ApexTooltip;
     legend: ApexLegend;
     title: ApexTitleSubtitle;
+    colors?: string[];
 };
 
 @Component({
@@ -45,6 +46,7 @@ export class StackedBarChartComponent {
           stacked: true,
           height: 350
         },
+        colors: ['#28A745', '#6C757D', '#4DD0E1', '#7F7BFF'], 
         xaxis: {
           categories: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex']
         },yaxis: {

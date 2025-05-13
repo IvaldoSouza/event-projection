@@ -12,7 +12,6 @@ export class MockApiService {
     constructor(private http: HttpClient) { }
 
     getMockData(): Observable<{ eventsProjection: EventProjection[]; cycles: Cycle[] }> {
-        console.log('chegou aqui');
         return this.http.get<{ eventsProjection: EventProjection[]; cycles: Cycle[] }>('assets/mock-data.json');
     }
 }
