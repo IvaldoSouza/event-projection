@@ -41,15 +41,17 @@ src/
 
 1. Clonar o repositório:
    git clone git@github.com:IvaldoSouza/event-projection.git
-   cd projecao-eventos
+   
+2. Abrir a pasta do projeto no terminal
+   cd event-projection
 
-2. Instalar dependências:
+3. Instalar dependências:
    npm install
 
-3. Executar o projeto:
+4. Executar o projeto:
    ng serve
 
-4. Acessar no navegador:
+5. Acessar no navegador:
    http://localhost:4200
 
 ## Tecnologias Utilizadas
